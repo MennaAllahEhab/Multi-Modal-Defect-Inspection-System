@@ -11,30 +11,14 @@ from train import MultiModalClassifier
 
 device = torch.device("cpu")
 model = MultiModalClassifier(num_sensor_features=4).to(device)
-model.load_state_dict(torch.load('models/multimodal_model.pth', map_location=device))
-model.eval() 
+model.load_state_dict(torch.load('../models/multimodal_model.pth', map_location=device))
+model.eval()
 
 
-from pathlib import Path
-
-base_dir = Path(__file__).resolve().parent.parent
-train_dir = base_dir / "Data" / "row" / "images" / "train"
-
-
-image_files = list(train_dir.glob("**/*.[jJ][pP]*[gG]")) + list(train_dir.glob("**/*.[pP][nN][gG]"))
-
-if not image_files:
-    raise FileNotFoundError(f"there are not any photos found in folder: {train_dir}")
-
-image_path = str(image_files[0])
-print(f"Loading image from: {image_path}")
-
-image_path = image_files[0]
-print(f"Loading image from: {image_path}") 
-rgb_img = cv2.imread(image_path, 1)[:, :, ::-1] 
+image_path = '../Data/raw/images/train/crazing/crazing_1.jpg'
+rgb_img = cv2.imread(image_path, 1)[:, :, ::-1]  
 rgb_img = cv2.resize(rgb_img, (224, 224))
-rgb_img_float = np.float32(rgb_img) / 255 
-
+rgb_img_float = np.float32(rgb_img) / 255
 
 transform = transforms.Compose([
     transforms.ToPILImage(),
@@ -79,6 +63,6 @@ plt.title('Grad-CAM Heatmap (Explainability)')
 plt.axis('off')
 
 plt.tight_layout()
-plt.savefig('models/gradcam_result.png')
+plt.savefig('../models/gradcam_result.png')
 print("Grad-CAM visualization saved to models/gradcam_result.png")
 plt.show()
