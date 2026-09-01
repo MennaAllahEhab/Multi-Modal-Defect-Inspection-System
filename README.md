@@ -2,7 +2,7 @@
 
 An end-to-end industrial quality control system combining **Computer Vision (CNN)** and **Sensor Telemetry (Temperature, Vibration, Pressure, Humidity)** using **Early Fusion** for automated defect detection.
 
-<img width="1920" height="937" alt="Screenshot (20)" src="https://github.com/user-attachments/assets/6585e852-542c-42e4-b6c6-e796dd222d2b" />
+<img width="1920" height="1080" alt="Screenshot 2026-09-01 114947" src="https://github.com/user-attachments/assets/d7cc5df0-26be-4098-9a7c-ec1b678ccf39" />
 .placeholder.com/800x400.png?text=Add+Your+Dashboard+Screenshot+Here)
 
 ---
